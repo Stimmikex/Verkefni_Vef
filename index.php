@@ -21,39 +21,105 @@
 		background: url(img/backgroundimg/<?php echo $selectbackground; ?>) no-repeat center center fixed;
 		}
 	</style>
-	<h1 class="page_title">Carpooling</h1>
-	<div><h1 align="center">Drivers</h1></div>
-	<div class="pre"><?php
-		$res = file_get_contents("http://apis.is/rides/samferda-drivers/");
-		//$res = substr($res, 12, strlen($res) - 14);
-		$res = json_decode($res, true);
-		for ($i=0; $i < 16; $i++) { 
-			echo "<div class='datapool'>";
-			echo "From: ".$res['results'][$i]['from']."<br>";
-			echo "To: ".$res['results'][$i]['to']."<br>";
-			echo "Date: ".$res['results'][$i]['date']."<br>";
-			echo "Time: ".$res['results'][$i]['time']."<br>";
-			echo "<a href='".$res['results'][$i]['link']."' target='_blank'>Link</a>";
-			echo "</div><br>";
-		}
-		//print_r($res['results']);
-	?></div>
-	<div><h1 align="center">Passengers</h1></div>
-	<div class="pre"><?php
-		$res = file_get_contents("http://apis.is/rides/samferda-passengers/");
-		//$res = substr($res, 12, strlen($res) - 14);
-		$res = json_decode($res, true);
-		for ($i=0; $i < 16; $i++) { 
-			echo "<div class='datapool'>";
-			echo "From: ".$res['results'][$i]['from']."<br>";
-			echo "To: ".$res['results'][$i]['to']."<br>";
-			echo "Date: ".$res['results'][$i]['date']."<br>";
-			echo "Time: ".$res['results'][$i]['time']."<br>";
-			echo "<a href='".$res['results'][$i]['link']."' target='_blank'>Link</a>";
-			echo "</div><br>";
-		}
-		//print_r($res['results']);
-	?></div>
+	<h1 class="page_title white-text">Ride Me/Icedriver</h1>
+	<div><h1 class="white-text" align="center">Drivers</h1></div>
+	<div class="pre">
+		<?php 
+			$mainQuery = "SELECT rides.id AS id,
+									rides.timewhen AS timewhen,
+									rides.datetogo AS datetogo,
+									rides.to_id AS to_id,
+									rides.from_id AS from_id,
+									users.username AS user_id
+								FROM rides
+								INNER JOIN users ON users.id = rides.user_id
+								WHERE CURDATE() < datetogo";
+			$toQuery = "SELECT place FROM location WHERE id=:place_id LIMIT 1";
+			$fromQuery = "SELECT place FROM location WHERE id=:place_id LIMIT 1";
+
+			$mainRes = $db->prepare($mainQuery);
+			$mainRes->execute();
+
+			while ($row = $mainRes->fetch(PDO::FETCH_ASSOC)) {
+				$fromRes = $db->prepare($fromQuery);
+				$fromRes->bindParam(':place_id', $row['from_id']);
+
+				$toRes = $db->prepare($toQuery);
+				$toRes->bindParam(':place_id', $row['to_id']);
+
+				echo "<div class='datapool'>";
+
+				$fromRes->execute();
+
+				while ($row2 = $fromRes->fetch(PDO::FETCH_ASSOC)) {
+					echo "From: ".$row2['place']."<br>";
+				}
+
+				$toRes->execute();
+
+				while ($row2 = $toRes->fetch(PDO::FETCH_ASSOC)) {
+					echo "To: ".$row2['place']."<br>";
+				}
+
+				echo "Date: ".$row['datetogo']."<br>";
+				echo "Time: ".$row['timewhen']."<br>";
+				echo "User: ".$row['user_id']."<br>";
+				echo "</div>";
+
+			}
+
+			$mainRes = null;
+		?>
+	</div>
+	<div><h1 class="white-text" align="center">Passengers</h1></div>
+	<div class="pre">
+			<?php 
+			$passQuery = "SELECT asking.id AS id,
+									asking.timewhen AS timewhen,
+									asking.datetogo AS datetogo,
+									asking.to_id AS to_id,
+									asking.from_id AS from_id,
+									users.username AS user_id
+								FROM asking
+								INNER JOIN users ON users.id = asking.user_id
+								WHERE CURDATE() < datetogo";
+			$toQuery = "SELECT place FROM location WHERE id=:place_id LIMIT 1";
+			$fromQuery = "SELECT place FROM location WHERE id=:place_id LIMIT 1";
+
+			$passRes = $db->prepare($passQuery);
+			$passRes->execute();
+
+			while ($row = $passRes->fetch(PDO::FETCH_ASSOC)) {
+				$fromRes = $db->prepare($fromQuery);
+				$fromRes->bindParam(':place_id', $row['from_id']);
+
+				$toRes = $db->prepare($toQuery);
+				$toRes->bindParam(':place_id', $row['to_id']);
+
+				echo "<div class='datapool'>";
+
+				$fromRes->execute();
+
+				while ($row2 = $fromRes->fetch(PDO::FETCH_ASSOC)) {
+					echo "From: ".$row2['place']."<br>";
+				}
+
+				$toRes->execute();
+
+				while ($row2 = $toRes->fetch(PDO::FETCH_ASSOC)) {
+					echo "To: ".$row2['place']."<br>";
+				}
+
+				echo "Date: ".$row['datetogo']."<br>";
+				echo "Time: ".$row['timewhen']."<br>";
+				echo "User: ".$row['user_id']."<br>";
+				echo "</div>";
+
+			}
+
+			$mainRes = null;
+		?>
+	</div>
 	<!--<img src="<?php echo $randomImage; ?>" class="rand_image">-->
 	<?php 
 		include("inc/footer.php");

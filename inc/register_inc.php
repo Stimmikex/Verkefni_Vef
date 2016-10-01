@@ -5,10 +5,10 @@
 	/* If all the required fields are filled in */
 	if (isset($_POST['name'], $_POST['username'], $_POST['email'], $_POST['p'])) {
 		/* Sanitize and validate the data */
-		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING); //INPUT_POST is used to check get hte input then the function uses FILTER_SANITIZE_STRING to sanitize the input and then returns it as $name.
 		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 		$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-		$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+		$email = filter_var($email, FILTER_VALIDATE_EMAIL); //Check if the Email is valid
 
 		/* If the email is not valid */
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -53,6 +53,8 @@
 			if (!$addUserRes->execute()) {
 				$errorMessage .= '<p class="error-msg>Could not add you to the database.</p>"';
 			}
+
+			header("Location: login.php");
 
 			$addUserRes = null;
 		}
