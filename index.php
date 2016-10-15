@@ -64,10 +64,7 @@
 				echo "Date: ".$row['datetogo']."<br>";
 				echo "Time: ".$row['timewhen']."<br>";
 				echo "User: ".$row['user_id']."<br>";
-<<<<<<< HEAD
 				echo "<a href='ride.php?rid=".$row['id']."'>Full Info</a>";
-=======
->>>>>>> origin/master
 				echo "</div>";
 
 			}

@@ -7,10 +7,7 @@
         <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         <a href="api_index.php">Api(Carpooling)</a>
         <a href="api_search.php">Api(Search)</a>
-<<<<<<< HEAD
         <a href="img_upload.php">Image Upload</a>
-=======
->>>>>>> origin/master
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text"></h5>
