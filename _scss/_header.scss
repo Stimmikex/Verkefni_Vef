@@ -1,0 +1,37 @@
+.nav-drop {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .nav-drop {
+    display: block;
+  }
+  nav {
+    #nav-mobile {
+      li {
+        display: none;
+      }
+    }
+  }
+  .nav-wrapper {
+    a {
+      width: 100%;
+      img {
+        justify-content: center;
+        margin: 0 auto;
+      }
+    }
+  }
+  .end-nav {
+    text-align: center;
+    background-color: #26a69a;
+    padding: 1em;
+  }
+  li.selected:last-child{
+    background-color: #26a69a;
+  }
+  .dropdown-content {
+    li:last-child {
+      text-align: center;
+    } 
+  }
+}

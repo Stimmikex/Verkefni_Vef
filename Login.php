@@ -13,9 +13,9 @@
 		$randomImage = $images[array_rand($images)];
 
 		if (isset($_POST['email'], $_POST['p'])) {
-			$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+			$email = filter_input(INPUT_POST, trim('email'), FILTER_SANITIZE_EMAIL);
 			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
-			$password = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
+			$password = filter_input(INPUT_POST, trim('p'), FILTER_SANITIZE_STRING);
 
 			/* Get the login message */
 			$loginMessage = login($email, $password, $db);
@@ -32,12 +32,11 @@
 				echo '<h2 align="center">The password you entered does not match our records.</h2>';
 			}
 
-			echo $_POST['p'];
 		}
 	?>
 	<h1 class="page_title"><?php echo $page_name2; ?></h1>
 	<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" accept-charset="UTF-8">
-		<label for="email">Email:*</label>
+		<label for="icon_email">Email:*</label>
 		<input type="text" name="email" required>
 		<label for="password">Password:*</label>
 		<input type="password" name="password" id="login-password" required>
