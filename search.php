@@ -18,7 +18,10 @@
 	<div class="input-field col s12">
 	<p>From:</p>
 	<select name="from" class="browser-default">
+<<<<<<< HEAD
 		<option value="-1" disabled selected>Pick</option>
+=======
+>>>>>>> origin/master
     <?php
 		$query = "SELECT id, place FROM location ORDER BY place ASC";
 		$res = $db->prepare($query);
@@ -33,7 +36,10 @@
 	<div class="input-field col s12">
 	<p>To:</p>
     <select name="to" class="browser-default">
+<<<<<<< HEAD
 		<option value="-1" disabled selected>Pick</option>
+=======
+>>>>>>> origin/master
 	     <?php
 	    	$res->execute();
 
@@ -42,13 +48,17 @@
 			}
 
 			$res = null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 		?>
 	</select>
 		<input type="submit" name="submit" class="btn waves-effect waves-light" id="search-button">
 	</div>
 	</form>
 	<div class="pre">
+<<<<<<< HEAD
 		<?php
 			if (isset($_POST['submit'])) {
 				$mainQuery = "SELECT rides.id AS id,
@@ -118,6 +128,11 @@
 				$mainRes = null;
 			}
 		?>	
+=======
+	<?php 
+			
+	?>		
+>>>>>>> origin/master
 	</div>
 	<!--<img src="<?php echo $randomImage; ?>" class="rand_image">-->
 	<?php 

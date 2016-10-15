@@ -3,10 +3,15 @@
 <head>
 	<?php
 		include("inc/head.php");
+<<<<<<< HEAD
 
 		$user_id = $_SESSION['user_id'];
 
 	 ?>
+=======
+	 ?>
+	 <link rel="stylesheet" type="text/css" href="css/pikaday.css">
+>>>>>>> origin/master
 </head>
 <body>
 	<?php
@@ -15,6 +20,7 @@
 		if ($logged == 'out') {
 			header("Location: index.php");
 		}
+<<<<<<< HEAD
 
 		$Profilequery = "SELECT * FROM users WHERE id = :id";
 	    $res = $db->prepare($Profilequery);
@@ -31,6 +37,8 @@
 
 		}
 
+=======
+>>>>>>> origin/master
 		?>
 	<?php 
 		include("inc/footer.php");
