@@ -1,27 +1,19 @@
-<<<<<<< HEAD
 <?php
 use classes\upload_class;
 
 // set the maximum upload size in bytes
 
 ?>
-=======
->>>>>>> origin/master
 <!DOCTYPE html>
 <html>
 <head>
 	<?php
 		include("inc/head.php");
 
-<<<<<<< HEAD
-	 ?>
-=======
 		$user_id = $_SESSION['user_id'];
 
 	 ?>
-	 ?>
 	 <link rel="stylesheet" type="text/css" href="css/pikaday.css">
->>>>>>> origin/master
 </head>
 <body>
 	<?php
@@ -30,7 +22,7 @@ use classes\upload_class;
 		if ($logged == 'out') {
 			header("Location: index.php");
 		}
-<<<<<<< HEAD
+
 		$user_id = $_SESSION['user_id'];
 		$max = 600 * 1024; // 600 KB
 		if (isset($_POST['upload'])) {
@@ -63,7 +55,6 @@ use classes\upload_class;
 
 			echo "<div>";
 			echo "<img src=".$dirname. $row['image']." class='profile_img'><br>";
-=======
 
 		$Profilequery = "SELECT * FROM users WHERE id = :id";
 	    $res = $db->prepare($Profilequery);
@@ -73,14 +64,12 @@ use classes\upload_class;
 		while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
 
 			echo "<div>";
->>>>>>> origin/master
 			echo "Name: ".$row['name']."<br>";
 			echo "Username: ".$row['username']."<br>";
 			echo "Email: ".$row['email']."<br>";
 			echo "</div>";
 
 		}
-<<<<<<< HEAD
 		?>
 		<h1>Drivers</h1>
 		<?php 
@@ -203,10 +192,6 @@ use classes\upload_class;
         	<input type="submit" name="upload" id="upload" value="Upload">
     	</p>
 	</form>
-=======
-
-		?>
->>>>>>> origin/master
 	<?php 
 		include("inc/footer.php");
 	?>

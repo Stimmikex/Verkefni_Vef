@@ -42,8 +42,6 @@
     imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions | link"
   });
 </script> -->
-=======
->>>>>>> origin/master
 <script type="text/javascript">
   $(function() {
     $(".button-collapse").sideNav();

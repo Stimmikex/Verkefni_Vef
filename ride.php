@@ -10,7 +10,6 @@
 		include("inc/header.php");
 
 		$ride_id = $_GET['rid'];
-<<<<<<< HEAD
 		$ridetype = $_GET['type'];
 		if ($ridetype == 0) {
 			$infoQuery = "SELECT rides.id AS id,
@@ -120,7 +119,6 @@
 			$mainRes = null;
 
 		}
-=======
 
 		$infoQuery = "SELECT rides.id AS id,
 								rides.timewhen AS timewhen,
@@ -169,7 +167,6 @@
 
 		$mainRes = null;
 
->>>>>>> origin/master
 	?>
 	<?php 
 		include("inc/footer.php");

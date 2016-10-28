@@ -8,11 +8,8 @@ if (isset($_POST['upload'])) {
     $destination = $_SERVER['DOCUMENT_ROOT'] . "/2t/2509972569/VEF2A3U/Verkefni_Vef/img/user_img/"; 
     require_once 'classes/upload_class.php';
     try {
-<<<<<<< HEAD
         $loader = new Upload($destination, $user_id, $db);
-=======
         $loader = new Upload($destination);
->>>>>>> origin/master
         $loader->setMaxSize($max);
         $loader->allowAllTypes();
         $loader->upload();
@@ -44,8 +41,6 @@ if (isset($_POST['upload'])) {
 		    echo '</ul>';
 		}
 	?>
-<<<<<<< HEAD
-=======
 	<?php
 		$dirname = $_SERVER['DOCUMENT_ROOT'] . "/2t/2509972569/VEF2A3U/Verkefni_Vef/img/user_img/";
 		$images = glob($dirname."*.png");
@@ -54,7 +49,6 @@ if (isset($_POST['upload'])) {
 		echo '<img src="'.$image.'" class="image" width="42" height="42"><br>';
 		}
 	?>
->>>>>>> origin/master
 	<form action="" method="post" enctype="multipart/form-data" id="uploadImage">
 	    <p>
 	        <label for="image">Upload image:</label>
@@ -65,7 +59,6 @@ if (isset($_POST['upload'])) {
         	<input type="submit" name="upload" id="upload" value="Upload">
     	</p>
 	</form>
-<<<<<<< HEAD
 	<?php
 		//DOCUMENT_ROOT, SERVER_NAME
 		$dirname = "img/user_img/";
@@ -76,8 +69,6 @@ if (isset($_POST['upload'])) {
 		echo '<img src="'.$image.'" class="image"><br>';
 		}
 	?>
-=======
->>>>>>> origin/master
 	<?php 
 		include("inc/footer.php");
 	?>
