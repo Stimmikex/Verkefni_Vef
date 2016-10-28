@@ -64,7 +64,11 @@
 				echo "Date: ".$row['datetogo']."<br>";
 				echo "Time: ".$row['timewhen']."<br>";
 				echo "User: ".$row['user_id']."<br>";
+<<<<<<< HEAD
 				echo "<a href='ride.php?rid=".$row['id']."&type=0'>Full Info</a>";
+=======
+				echo "<a href='ride.php?rid=".$row['id']."'>Full Info</a>";
+>>>>>>> origin/master
 				echo "</div>";
 
 			}
@@ -114,6 +118,7 @@
 				echo "Date: ".$row['datetogo']."<br>";
 				echo "Time: ".$row['timewhen']."<br>";
 				echo "User: ".$row['user_id']."<br>";
+<<<<<<< HEAD
 				/*if ($user_id = $row['user_id']) {
 					echo "<a href='upride.php?rid=".$row['id']."&type=1'>Full Info/update</a>";	
 				}
@@ -121,6 +126,8 @@
 					echo "<a href='ride.php?rid=".$row['id']."&type=1'>Full Info</a>";	
 				}*/
 				echo "<a href='ride.php?rid=".$row['id']."&type=1'>Full Info</a>";
+=======
+>>>>>>> origin/master
 				echo "</div>";
 
 			}

@@ -19,6 +19,7 @@
 	<p>From:</p>
 	<select name="from" class="browser-default">
 		<option value="-1" disabled selected>Pick</option>
+<<<<<<< HEAD
     <?php
 		$query = "SELECT id, place FROM location ORDER BY place ASC";
 		$res = $db->prepare($query);
@@ -28,6 +29,17 @@
 			echo '<option value="'.$row['id'].'">'.$row['place'].'</option>';
 		}
 	?>
+=======
+	    <?php
+			$query = "SELECT id, place FROM location ORDER BY place ASC";
+			$res = $db->prepare($query);
+			$res->execute();
+
+			while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+				echo '<option value="'.$row['id'].'">'.$row['place'].'</option>';
+			}
+		?>
+>>>>>>> origin/master
 	</select>
 	</div>
 	<div class="input-field col s12">
@@ -42,7 +54,10 @@
 			}
 
 			$res = null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 		?>
 	</select>
 		<input type="submit" name="submit" class="btn waves-effect waves-light" id="search-button">
@@ -118,6 +133,12 @@
 				$mainRes = null;
 			}
 		?>	
+<<<<<<< HEAD
+=======
+	<?php 
+			
+	?>		
+>>>>>>> origin/master
 	</div>
 	<!--<img src="<?php echo $randomImage; ?>" class="rand_image">-->
 	<?php 

@@ -46,8 +46,13 @@
 				<input type="text" id="datepicker" name="dateride" required>
 		        <div class="row">
 		        	<div class="input-field">
+<<<<<<< HEAD
 		         	<textarea id="ck_editor" name="message"></textarea>
 		        	<!-- <label for="icon_prefix2">Message: </label> -->
+=======
+		         	<textarea id="icon_prefix2" name="message" class="materialize-textarea"></textarea>
+		        	<label for="icon_prefix2">Message: </label>
+>>>>>>> origin/master
 		       		</div>
 		     	</div>
 				<input type="submit" name="submit" value="Add" id="register-button" class="btn waves-effect waves-light">

@@ -1,4 +1,9 @@
 <?php
+<<<<<<< HEAD
+=======
+    include("db_connect.php");
+    $user_id = $_SESSION['user_id'];
+>>>>>>> origin/master
 class Upload {
 
     protected $uploaded = [];
@@ -16,19 +21,29 @@ class Upload {
     protected $suffix = '.upload';
     protected $newName;
     protected $renameDuplicates;
+<<<<<<< HEAD
     protected $db;
     protected $user_id;
     //protected $Randomname = uniqid('name');
 
 
     public function __construct($path, $user_id, $db) {
+=======
+    //protected $Randomname = uniqid('name');
+
+
+    public function __construct($path) {
+>>>>>>> origin/master
         if (!is_dir($path) || !is_writable($path)) {
             throw new \Exception("$path must be a valid, writable directory.");
         }
         $this->destination = $path;
+<<<<<<< HEAD
         $this->db = $db;
         $this->user_id = $user_id;
 
+=======
+>>>>>>> origin/master
     }
 
     public function upload($renameDuplicates = true) {
@@ -49,6 +64,7 @@ class Upload {
         } else {
             if ($this->checkFile($uploaded)) {
                 $this->moveFile($uploaded);
+<<<<<<< HEAD
                 $userImage = isset($this->newName) ? $this->newName : $uploaded['name'];
                 
                 /* Put the file name in the database and let the user know */
@@ -58,6 +74,16 @@ class Upload {
                 $updateProfileImgRes->bindParam(':id', $this->user_id);
                 $updateProfileImgRes->execute();
                 $updateProfileImgRes = null;
+=======
+                /*$userImage = $currentFile['name']*/
+                /* Put the file name in the database and let the user know */
+                /*$updateProfileImgQuery = "UPDATE users SET image = :profile_img WHERE id = :id";
+                $updateProfileImgRes = $db->prepare($updateProfileImgQuery);
+                $updateProfileImgRes->bindParam(':profile_img', $userImage);
+                $updateProfileImgRes->bindParam(':id', $user_id);
+                $updateProfileImgRes->execute();
+                $updateProfileImgRes = null;*/
+>>>>>>> origin/master
             }
         }
     }

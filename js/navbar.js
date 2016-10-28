@@ -8,4 +8,8 @@ $('.dropdown-button').dropdown({
 	alignment: 'left' // Displays dropdown with edge aligned to the left of button
 	}
 );
+<<<<<<< HEAD
 $('.dropdown-button').dropdown('toggle');
+=======
+$('.dropdown-button').dropdown('toggle');
+>>>>>>> origin/master

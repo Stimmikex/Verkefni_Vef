@@ -24,6 +24,7 @@
 <script src="js/sha512.js"></script>
 <script src="js/forms.js"></script>
 <script src="js/navbar.js"></script>
+<<<<<<< HEAD
 <script src="ckeditor/ckeditor.js"></script>
 <script>
   CKEDITOR.replace('ck_editor', {
@@ -41,6 +42,8 @@
     imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions | link"
   });
 </script> -->
+=======
+>>>>>>> origin/master
 <script type="text/javascript">
   $(function() {
     $(".button-collapse").sideNav();
