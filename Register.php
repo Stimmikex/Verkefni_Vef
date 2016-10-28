@@ -10,8 +10,8 @@
 	<?php 	
 		include("inc/header.php");
 	?>
+		<h1 class="page_title"><?php echo $page_name2; ?></h1>
 		<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" accept-charset="UTF-8">
-			<h2>Register</h2>
 			<label for="name">Full name:*</label>
 			<input type="text" name="name" required>
 			<label for="username">Username:*</label>
@@ -22,7 +22,7 @@
 			<input type="password" name="password" required>
 			<label for="confirmpwd">Confirm password:*</label>
 			<input type="password" name="confirmpwd" id="register-password" required>
-			<input type="button" value="Register"  id="register-button" onclick="return regformhash(this.form,
+			<input type="button" class="btn waves-effect waves-light" value="Register" id="register-button" onclick="return regformhash(this.form,
 																				this.form.name,
 																				this.form.username,
 																				this.form.email,
