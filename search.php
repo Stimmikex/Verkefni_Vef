@@ -28,15 +28,6 @@
 			echo '<option value="'.$row['id'].'">'.$row['place'].'</option>';
 		}
 	?>
-	    <?php
-			$query = "SELECT id, place FROM location ORDER BY place ASC";
-			$res = $db->prepare($query);
-			$res->execute();
-
-			while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-				echo '<option value="'.$row['id'].'">'.$row['place'].'</option>';
-			}
-		?>
 	</select>
 	</div>
 	<div class="input-field col s12">
@@ -51,6 +42,7 @@
 			}
 
 			$res = null;
+
 		?>
 	</select>
 		<input type="submit" name="submit" class="btn waves-effect waves-light" id="search-button">
@@ -119,13 +111,14 @@
 					echo "Date: ".$row['datetogo']."<br>";
 					echo "Time: ".$row['timewhen']."<br>";
 					echo "User: ".$row['user_id']."<br>";
+					echo "<a href='ride.php?rid=".$row['id']."&type=0'>Full Info</a>";
 					echo "</div>";
 
 				}
 
 				$mainRes = null;
 			}
-		?>		
+		?>	
 	</div>
 	<!--<img src="<?php echo $randomImage; ?>" class="rand_image">-->
 	<?php 

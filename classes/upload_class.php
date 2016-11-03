@@ -1,6 +1,4 @@
 <?php
-    include("db_connect.php");
-    $user_id = $_SESSION['user_id'];
 class Upload {
 
     protected $uploaded = [];
@@ -24,10 +22,6 @@ class Upload {
 
 
     public function __construct($path, $user_id, $db) {
-    //protected $Randomname = uniqid('name');
-
-
-    public function __construct($path) {
         if (!is_dir($path) || !is_writable($path)) {
             throw new \Exception("$path must be a valid, writable directory.");
         }
@@ -64,15 +58,6 @@ class Upload {
                 $updateProfileImgRes->bindParam(':id', $this->user_id);
                 $updateProfileImgRes->execute();
                 $updateProfileImgRes = null;
-                
-                /*$userImage = $currentFile['name']*/
-                /* Put the file name in the database and let the user know */
-                /*$updateProfileImgQuery = "UPDATE users SET image = :profile_img WHERE id = :id";
-                $updateProfileImgRes = $db->prepare($updateProfileImgQuery);
-                $updateProfileImgRes->bindParam(':profile_img', $userImage);
-                $updateProfileImgRes->bindParam(':id', $user_id);
-                $updateProfileImgRes->execute();
-                $updateProfileImgRes = null;*/
             }
         }
     }

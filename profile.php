@@ -10,10 +10,7 @@ use classes\upload_class;
 	<?php
 		include("inc/head.php");
 
-		$user_id = $_SESSION['user_id'];
-
 	 ?>
-	 <link rel="stylesheet" type="text/css" href="css/pikaday.css">
 </head>
 <body>
 	<?php
@@ -22,8 +19,9 @@ use classes\upload_class;
 		if ($logged == 'out') {
 			header("Location: index.php");
 		}
-
-		$user_id = $_SESSION['user_id'];
+		else {
+			$user_id = $_SESSION['user_id'];
+		}
 		$max = 600 * 1024; // 600 KB
 		if (isset($_POST['upload'])) {
 		    // define the path to the upload folder
@@ -54,16 +52,12 @@ use classes\upload_class;
 		while ($row = $imgres->fetch(PDO::FETCH_ASSOC)) {
 
 			echo "<div>";
-			echo "<img src=".$dirname. $row['image']." class='profile_img'><br>";
-
-		$Profilequery = "SELECT * FROM users WHERE id = :id";
-	    $res = $db->prepare($Profilequery);
-	    $res->bindParam(':id', $user_id);
-	    $res->execute();
-
-		while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-
-			echo "<div>";
+			if ($row['image'] == null) {
+				echo "<img src='".$dirname. "default_image.png' class='profile_img'><br>";
+			}
+			else {
+				echo "<img src=".$dirname. $row['image']." class='profile_img'><br>";
+			}
 			echo "Name: ".$row['name']."<br>";
 			echo "Username: ".$row['username']."<br>";
 			echo "Email: ".$row['email']."<br>";
@@ -118,7 +112,7 @@ use classes\upload_class;
 				else {
 					echo "<a href='ride.php?rid=".$row['id']."&type=0'>Full Info</a>";	
 				}*/
-				echo "<a href='update_ride.php?rid=".$row['id']."&type=0'>Full Info/Update</a>";
+				echo "<a href='update_ride.php?rid=".$row['id']."&type=0'>Full Info/Update/Delete</a>";
 				echo "</div>";
 
 			}
@@ -167,7 +161,7 @@ use classes\upload_class;
 				echo "Time: ".$row['timewhen']."<br>";
 				echo "User: ".$row['user_id']."<br>";
 				if ($user_id = $row['user_id']) {
-					echo "<a href='update_ride.php?rid=".$row['id']."&type=1'>Full Info/update</a>";	
+					echo "<a href='update_ride.php?rid=".$row['id']."&type=1'>Full Info/Update/Delete</a>";	
 				}
 				else {
 					echo "<a href='update_ride.php?rid=".$row['id']."&type=1'>Full Info</a>";	

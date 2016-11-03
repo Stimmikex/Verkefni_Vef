@@ -15,6 +15,9 @@
 		$background = array('backimg_01.jpg','backimg_02.jpg','backimg_03.jpg');
 		$img = rand(0, count($background)-1);
 		$selectbackground = $background[$img];
+		if($logged == 'in') {
+			$user_id = $_SESSION['user_id'];
+		}
 	?>
 	<style type="text/css">
 		body{
@@ -65,7 +68,6 @@
 				echo "Time: ".$row['timewhen']."<br>";
 				echo "User: ".$row['user_id']."<br>";
 				echo "<a href='ride.php?rid=".$row['id']."&type=0'>Full Info</a>";
-				echo "<a href='ride.php?rid=".$row['id']."'>Full Info</a>";
 				echo "</div>";
 
 			}

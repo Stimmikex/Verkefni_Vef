@@ -40,6 +40,24 @@
 						$rideRes->execute();
 					}
 
+					if (isset($_POST['delete'])) {
+						$delete_ride = null;
+
+						if ($ridetype == 0) {
+							$delete_ride = "DELETE FROM rides WHERE id=$ride_id";
+						}
+						else if ($ridetype == 1) {
+							$delete_ride = "DELETE FROM asking WHERE id=$ride_id";
+						}
+
+						$deleteRes = $db->prepare($delete_ride);
+						$deleteRes->execute();
+
+						$deleteRes = null;
+
+						header('Location: profile.php');
+					}
+
 					/* UPDATE rides SET to_id=:to_id, from_id=:from_id, message=:message, timewhen=:timewhen, dateride=:dateride, user_id:user_id WHERE id=:ride_id */
 
 					if ($ridetype == 0) {
@@ -131,6 +149,9 @@
 		     	</div>
 				<input type="submit" name="submit" value="Add" id="register-button" class="btn waves-effect waves-light">
 				<?php
+					echo "<br><br>";
+					echo "<div class='divider'></div>";
+					echo '<input type="submit" name="delete" value="Delete" id="register-button" class="btn waves-effect waves-light">';
 					$res = null;
 					}
 				}
@@ -222,8 +243,11 @@
 		        	<!-- <label for="icon_prefix2">Message: </label> -->
 		       		</div>
 		     	</div>
-				<input type="submit" name="submit" value="Add" id="register-button" class="btn waves-effect waves-light">
+				<input type="submit" name="submit" value="Update" id="register-button" class="btn waves-effect waves-light">
 				<?php
+					echo "<br><br>";
+					echo "<div class='divider'></div>";
+					echo '<input type="submit" name="delete" value="Delete" id="register-button" class="btn waves-effect waves-light">';
 					$res = null;
 					}
 				} 

@@ -9,7 +9,6 @@ if (isset($_POST['upload'])) {
     require_once 'classes/upload_class.php';
     try {
         $loader = new Upload($destination, $user_id, $db);
-        $loader = new Upload($destination);
         $loader->setMaxSize($max);
         $loader->allowAllTypes();
         $loader->upload();
@@ -39,14 +38,6 @@ if (isset($_POST['upload'])) {
 		        echo "<li>$message</li>";
 		    }
 		    echo '</ul>';
-		}
-	?>
-	<?php
-		$dirname = $_SERVER['DOCUMENT_ROOT'] . "/2t/2509972569/VEF2A3U/Verkefni_Vef/img/user_img/";
-		$images = glob($dirname."*.png");
-		//$images = glob("{$dirname}*.png, {$dirname}*.jpeg, {$dirname}*..gif")
-		foreach($images as $image) {
-		echo '<img src="'.$image.'" class="image" width="42" height="42"><br>';
 		}
 	?>
 	<form action="" method="post" enctype="multipart/form-data" id="uploadImage">
